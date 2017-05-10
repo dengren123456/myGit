@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStream;
 import java.net.URLEncoder;
+import java.time.LocalDate;
 import java.util.UUID;
 
 import org.apache.struts2.ServletActionContext;
@@ -45,6 +46,7 @@ public class ApplicantAction extends BaseAction<Applicant> {
 		try{
 			applicant.setEamil(email);
 			applicant.setUsername(username);
+			applicant.setUploadtime(LocalDate.now());
 			applicant.setPdfPath(pdfPath);
 			applicantService.save(applicant);
 		}catch(Exception e){
@@ -57,9 +59,25 @@ public class ApplicantAction extends BaseAction<Applicant> {
 	public String downLoadInputStream() throws Exception {
 		String path = ServletActionContext.getServletContext().getRealPath("/application");
 		if(fileOrder.equals("1")){
-		String filepath=path+"\\"+"MONGOLIA MBBS APPLICATION FORM.docx";
-		fileInputStream = new FileInputStream(new File(filepath)); 
-	    downloadFileName = URLEncoder.encode("MONGOLIA MBBS APPLICATION FORM.docx", "UTF-8");
+			String filepath=path+"\\"+"MONGOLIA MBBS APPLICATION FORM.docx";
+			fileInputStream = new FileInputStream(new File(filepath)); 
+		    downloadFileName = URLEncoder.encode("MONGOLIA MBBS APPLICATION FORM.docx", "UTF-8");
+		}else if(fileOrder.equals("2")){
+			String filepath=path+"\\"+"MONGOLIA MBBS APPLICATION FORM.pdf";
+			fileInputStream = new FileInputStream(new File(filepath)); 
+		    downloadFileName = URLEncoder.encode("MONGOLIA MBBS APPLICATION FORM.pdf", "UTF-8");
+		}else if(fileOrder.equals("3")){
+			String filepath=path+"\\"+"Medical Examination Form.docx";
+			fileInputStream = new FileInputStream(new File(filepath)); 
+		    downloadFileName = URLEncoder.encode("Medical Examination Form.docx", "UTF-8");
+		}else if(fileOrder.equals("3")){
+			String filepath=path+"\\"+"Medical Examination Form.pdf";
+			fileInputStream = new FileInputStream(new File(filepath)); 
+		    downloadFileName = URLEncoder.encode("Medical Examination Form.pdf", "UTF-8");
+		}else{
+			String filepath=fileOrder;
+			fileInputStream = new FileInputStream(new File(filepath)); 
+			downloadFileName = URLEncoder.encode(username+".pdf", "UTF-8");
 		}
 		return SUCCESS;
 	}
@@ -72,6 +90,7 @@ public class ApplicantAction extends BaseAction<Applicant> {
 			jo.put("username", applicant.getUsername());
 			jo.put("email", applicant.getEamil());
 			jo.put("pdfPath", applicant.getPdfPath());
+			jo.put("uploadtime", applicant.getUploadtime());
 			array.add(jo);
 		}
 		jsonObject.put("rows", array);

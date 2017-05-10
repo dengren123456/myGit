@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
 <div class="col-xs-12">
+<form enctype="multipart/form-data" method="post">
 	<table border="1">
 		<tr>
 			<td>
@@ -13,11 +14,11 @@
 			</td>
 			<td>
 				<label>Family Name:</label><br/>
-				<input type="text" id="family_name"/>
+				<input type="text" id="familyName"/>
 			</td>
 			<td colspan='3'>
 				<label>First & Middle Name: </label><br/>
-				<input type="text" id="first_middle_name"/>
+				<input type="text" id="firstMiddleName"/>
 			</td>
 		</tr>
 		<tr>
@@ -68,11 +69,11 @@
 			</td>
 			<td>
 				<label>Native Language:</label><br/>
-				<input type="text" id="native"/>
+				<input type="text" id="natives"/>
 			</td>
 			<td>
 				<label>Second Language:</label><br/>
-				<input type="text" id="second_language"/>
+				<input type="text" id="secondLanguage"/>
 			</td>
 		</tr>
 		<tr>
@@ -92,11 +93,11 @@
 		<tr>
 			<td colspan='3'>
 				<label>Home Tel with Country & City Code:</label><br/>
-				<input type="text" id="home_tel"/>
+				<input type="text" id="homeTel"/>
 			</td>
 			<td>
 				<label>Work Tel with Country & City Code:</label><br/>
-				<input type="text" id="work_tel"/>
+				<input type="text" id="workTel"/>
 			</td>
 			<td>
 				<label>Fax with Country & City Code:</label><br/>
@@ -136,7 +137,7 @@
 		<tr>
 			<td colspan='5'>
 				<label>Program Starting  Date</label><br/>
-				<input type="text" id="program_date"/>
+				<input type="text" id="programDate"/>
 			</td>
 		</tr>
 		<tr>
@@ -210,11 +211,11 @@
 		<tr>
 			<td colspan='2'>
 				<label>Accommodation Starting Date (day before start of program): </label>
-				<input type="text" id="starting_date"/>
+				<input type="text" id="startingDate"/>
 			</td>
 			<td colspan='3'>
 				<label>Accommodation End Date(day after the last day of program): </label>
-				<input type="text" id="end_date"/>
+				<input type="text" id="endDate"/>
 			</td>
 		</tr>
 		<tr>
@@ -253,21 +254,21 @@
 			</td>
 			<td>
 				<label>Home Tel with Country & City Code </label><br/>
-				<input type="text" id="home_tel"/>
+				<input type="text" id="homeTel2"/>
 			</td>
 			<td>
 				<label>Work Tel with Country & City Code </label><br/>
-				<input type="text" id="work_tel"/>
+				<input type="text" id="workTel2"/>
 			</td>
 		</tr>
 		<tr>
 			<td colspan='3'>
 				<label>Mobile with Country & City Code </label><br/>
-				<input type="text" id="mobile_country"/>
+				<input type="text" id="mobileCountry"/>
 			</td>
 			<td colspan='2'>
 				<label>Fax with Country & City Code </label><br/>
-				<input type="text" id="fax_country"/>
+				<input type="text" id="faxCountry"/>
 			</td>
 		</tr>
 		<tr>
@@ -302,6 +303,29 @@
 			</td>
 		</tr>
 	</table>
+	<div class="row">
+		<div class="col-xs-6">
+			<div id="inputFile">
+			<input type="file" multiple=true name="upload">
+			<input type="file" multiple=true name="upload">
+			<input type="file" multiple=true name="upload">
+			<input type="file" multiple=true name="upload">
+			<input type="file" multiple=true name="upload">
+			<input type="file" multiple=true name="upload">
+			<input type="file" multiple=true name="upload">
+			<input type="file" multiple=true name="upload">
+			<input type="file" multiple=true name="upload">
+			<input type="file" multiple=true name="upload">
+			<div id="addUpload"></div>
+			</div>
+		</div>
+		<div class="col-xs-6">
+			<p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p>
+			<label>You can Continue adding other attachments</label><br/>
+			<label>Click the ADD</label><br/>
+			<a class="button button-caution button-circle button-jumbo" onclick="addFile()">ADD</a>
+		</div>
+	</div>
 	<a class="css-3d-btn2" href="javascript:void(0);" onclick="submit()">SUBMIT</a>
-	
+</form>
 </div>

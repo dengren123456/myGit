@@ -12,7 +12,7 @@ import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 
 import cn.application.service.ApplicantService;
-import cn.application.service.CountService;
+import cn.application.service.ContactService;
 import cn.application.util.FileUploadUtil;
 
 public class BaseAction<T> extends ActionSupport implements RequestAware,
@@ -38,8 +38,8 @@ SessionAware,ApplicationAware,ModelDriven<T>{
 	//Service注入
 	@Resource(name="applicantService")
 	protected ApplicantService applicantService;
-	@Resource(name="countService")
-	protected CountService countService;
+	@Resource(name="contactService")
+	protected ContactService contactService;
 	@Resource(name="fileUploadUtil")
 	protected FileUploadUtil fileUploadUtil;
 	

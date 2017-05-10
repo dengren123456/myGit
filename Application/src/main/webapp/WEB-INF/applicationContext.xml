@@ -40,7 +40,7 @@
 		<property name="annotatedClasses">
 			<list>
 				<value>cn.application.entity.Applicant</value>
-				<value>cn.application.entity.Count</value>
+				<value>cn.application.entity.Contact</value>
 			</list>
 		</property>
 		<property name="hibernateProperties">

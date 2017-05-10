@@ -12,6 +12,12 @@
 <script type="text/javascript" src="${pageContext.request.contextPath}/easyui/datagrid-detailview.js"></script>
 <title>Insert title here</title>
 <script type="text/javascript">
+	function filedown(index){
+		$('#box').datagrid('selectRow',index);
+		var row=$('#box').datagrid('getSelected');
+		$('<form method="post" action="${pageContext.request.contextPath}/applicantAction_downLoadInputStream.action" ><input type="text" value="'+row.pdfPath+'" name="fileOrder"/><input type="text" value="'+row.username+'" name="username"/></form>').appendTo('body').submit().remove();
+	}
+	
 	$(function(){
 		$('#box').datagrid({    
 		    url:'${pageContext.request.contextPath}/applicantAction_queryByPage.action',
@@ -31,7 +37,12 @@
 		    columns:[[
 				{field:'username',title:'username',width:'25%',align:'center'},
 		        {field:'email',title:'email',width:'25%',align:'center'},
-		        {field:'pdfPath',title:'pdfPath',width:'50%',align:'center'}
+		        {field:'uploadtime',title:'uploadtime',width:'25%',align:'center'},
+		        {field:'pdfPath',title:'pdfPath',align:'center',hidden:'true'},
+		        {field:'down',title:'',width:'25%',align:'center',formatter:function(value,row,index){
+		        	return "<a href='#' onclick='filedown(" + index +")' style='text-decoration:none'>"+"download"+"</a>"
+		        	}
+		        }
 		    ]]
 		});
 
@@ -48,6 +59,9 @@
             	<div id="box"></div>
             </div>
         </div>
+    </div>
+    <div id="divHeader" data-options="region:'south',border:false">
+    	<font size="7">MANAGER</font>
     </div>
 </body>
 </html>

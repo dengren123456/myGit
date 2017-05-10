@@ -2,6 +2,8 @@ package cn.application.entity;
 
 import static javax.persistence.GenerationType.IDENTITY;
 
+import java.time.LocalDate;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -18,6 +20,7 @@ public class Applicant implements java.io.Serializable{
 	private String eamil;
 	private String username;
 	private String pdfPath;
+	private LocalDate uploadtime;
 
 	
 	
@@ -58,5 +61,21 @@ public class Applicant implements java.io.Serializable{
 	public void setPdfPath(String pdfPath) {
 		this.pdfPath = pdfPath;
 	}
+	
+	@Column(name="uploadtime",length=100)
+	public LocalDate getUploadtime() {
+		return uploadtime;
+	}
+
+	public void setUploadtime(LocalDate uploadtime) {
+		this.uploadtime = uploadtime;
+	}
+	
+	
+	
+	
+	
+	
+	
 	
 }

@@ -19,42 +19,99 @@
     <script src="https://cdn.bootcss.com/Buttons/2.0.0/js/buttons.min.js"></script>
     <title>application</title>
     <script type="text/javascript">
-	$(function(){
-		$('#apply').click(function(){
-			var cs = document.getElementById("inputFile").getElementsByTagName("input")
-			for(i=0;i<cs.length;i++)
-			{
-				var filename = cs[i].value;
-				var fileExtension =  filename.replace(/.+\./, "").toLowerCase();
-				if( filename.length != 0 ){
-			  		if(fileExtension == "docx" || fileExtension == "pdf" || fileExtension == "jpg" || fileExtension == "png" || fileExtension == "gif"){
-			  			$.ajax({
-			  				url:'${pageContext.request.contextPath}/applicantAction_application.action',
-			  				type:'POST',
-			  				dataType:'json',
-			  				success:function(data){
-			  					if(data.status=='ok'){
-			  						alert("上传成功");
-			  					}else{
-			  						alert("上传失败，请重新上传");
-			  					};
-			  					
-			  				}
-			  			})
-			  		}else{
-			  			alert("allowedFileExtensions['docx','pdf','jpg', 'png', 'gif']");
-			  		};
-				}
-
-			}
-		})
-		$('#addFile').click(function(){
-			html='<input type="file" multiple=true name="upload"><br/>';
-			$("#addUpload").append(html); 
-		})
-	})
+	function addFile(){
+		html='<input type="file" multiple=true name="upload">';
+		$("#addUpload").append(html); 
+	}
 	function showForm(){
 		$("#form").show();
+	}
+	function contect(){
+		var dataParams = {
+			call:$('call').val(),
+			familyName:$('#familyName').val(),
+			firstMiddleName:$('#firstMiddleName').val(),
+			age:$('#age').val(),
+			birthday:$('#birthday').val(),
+			place:$('#place').val(),
+			sex:$('#sex').val(),
+			address:$('#address').val(),
+			city:$('#city').val(),
+			state:$('#state').val(),
+			postal:$('#postal').val(),
+			country:$('#country').val(),
+			natives:$('#natives').val(),
+			secondLanguage:$('#secondLanguage').val(),
+			nationality:$('#nationality').val(),
+			passport:$('#passport').val(),
+			date:$('#date').val(),
+			homeTel:$('#homeTel').val(),
+			workTel:$('#workTel').val(),
+			fax:$('#fax').val(),
+			mobile:$('#mobile').val(),
+			email1:$('#email1').val(),
+			email2:$('#email2').val(),
+			occuption:$('#occuption').val(),
+			academic:$('#academic').val(),
+			program:$('#program').val(),
+			programDate:$('#programDate').val(),
+			f1:$('#f1').val(),
+			t1:$('#t1').val(),
+			name_school1:$('#name_school1').val(),
+			certificate1:$('#certificate1').val(),
+			marks1:$('#marks1').val(),
+			age1:$('#age1').val(),
+			f2:$('#f2').val(),
+			t2:$('#t2').val(),
+			name_school2:$('#name_school2').val(),
+			certificate2:$('#certificate2').val(),
+			marks2:$('#marks2').val(),
+			age2:$('#age2').val(),
+			languages2:$('#languages2').val(),
+			hear:$('#hear').val(),
+			accommodation:$('#accommodation').val(),
+			circle:$('#circle').val(),
+			startingDate:$('#startingDate').val(),
+			endDate:$('#endDate').val(),
+			smoke:$('#smoke').val(),
+			vegetarian:$('#vegetarian').val(),
+			room:$('#room').val(),
+			comments:$('#comments').val(),
+			emergency:$('#emergency').val(),
+			homeTel2:$('#homeTel2').val(),
+			workTel2:$('#workTel2').val(),
+			mobileCountry:$('#mobileCountry').val(),
+			faxCountry:$('#faxCountry').val(),
+			address2:$('#address2').val(),
+			app:$('#app').val(),
+			dates:$('#dates').val(),
+			app2:$('#app2').val(),
+			dates2:$('#dates2').val(),
+		}
+		$.ajax({
+			url:'${pageContext.request.contextPath}/contactAction_contact.action',
+			data:{fullName:$("#fullName").val(),email:$("#c-email").val(),contactPhoneNumber:$("#contactPhoneNumber").val(),subject:$("#subject").val(),detail:$("#detail").val()},
+			dataType:'json',
+			method:'POST',
+			success:function(data){
+				  if (data.status=='ok'){
+					  alert("Thank You!");  
+				  }
+			},
+		})
+	}
+	function submit(){
+		$.ajax({
+			url:'${pageContext.request.contextPath}/applicantAction_application.action',
+			data:{},
+			dataType:'json',
+			method:'POST',
+			success:function(data){
+				  if (data.status=='ok'){
+					  alert("Thank You!");  
+				  }
+			},
+		})
 	}
 
 </script> 
@@ -63,8 +120,8 @@
 	<div class="box">
 	  	<div class="row">
 	  		<div class="col-md-12">
-	  		<s:iterator var="itor" begin="1" end="9"  step="1">
-	  			<img height='225px' width='143px' src="${pageContext.request.contextPath}/images/picture-1.jpg">
+	  		<s:iterator var="itor" begin="1" end="12"  step="1">
+	  			<img height='225px' width='152px' src="${pageContext.request.contextPath}/images/<s:property />.jpg">
 	  		</s:iterator>
 	  		</div>
 	    </div>
@@ -103,8 +160,10 @@
 		    		<div class="col-xs-12">
 		    			<div id="first"><font style="background-color:#EDEDED" size="7" color="#1F497D"><b><u>INTRODUCTION</u></b></font></div>
 		    			<p>&nbsp;</p>
+		    			<div style="background-color:#EDEDED;height:100px">
 		    			<font style="background-color:#EDEDED" size="7" color="#1F497D"><b>MBBS/ MD PROGRAM</b></font>
 		    			<hr style="height:3px;border:none;background-color:#473C8B;" />
+		    			</div>
 		    			<div class="row">
 	    					<div class="col-xs-12">
 	    						<font style="background-color:#EDEDED" size="6" color="#1F497D"><b>Prominent Features</b></font><br/>
@@ -133,7 +192,7 @@
 	    				</div>
 		    			<div>
 		    				<div style="background-color:#EDEDED;height:100px">
-		    				<font id="second" style="background-color:#EDEDED" size="7" color="#1F497D"><b>MESSAGE FROM THE PRESIDENT</b></font>
+		    				<font id="second" size="7" color="#1F497D"><b>MESSAGE FROM THE PRESIDENT</b></font>
 		    				<hr style="height:3px;border:none;border-top:3px;background-color:#473C8B;" />
 		    				</div>
 		    				<div class="row">
@@ -156,7 +215,7 @@
 			    				</div>
 		    				</div>
 		    				<div style="background-color:#EDEDED;height:100px">
-		    				<font id="third" style="background-color:#EDEDED" size="7" color="#1F497D"><b>Introduction and History</b></font>
+		    				<font id="third" size="7" color="#1F497D"><b>Introduction and History</b></font>
 		    				<hr style="height:3px;border:none;border-top:3px;background-color:#473C8B;" />
 		    				</div>
 		    				<div class="row">
@@ -203,7 +262,7 @@
 				    				</div>
 		    					</div>
 		    				<div style="background-color:#EDEDED;height:100px">
-		    				<font id="forth" style="background-color:#EDEDED" size="7" color="#1F497D"><b>ADMISSION REQUIREMENTS</b></font>
+		    				<font id="forth" size="7" color="#1F497D"><b>ADMISSION REQUIREMENTS</b></font>
 		    				<hr style="height:3px;border:none;border-top:3px;background-color:#473C8B;" />
 		    				</div>
 		    				<div class="row">
@@ -274,7 +333,7 @@
 			    						<li>Must be Fluent in English Language</li>
 			    					</ul>
 			    					<div style="background-color:#EDEDED;height:100px">
-			    					<font id="fifth" style="background-color:#EDEDED" size="7" color="#1F497D"><b>Required Documents</b></font>
+			    					<font id="fifth" size="7" color="#1F497D"><b>Required Documents</b></font>
 			    					<hr style="height:3px;border:none;border-top:3px;background-color:#473C8B;" />
 			    					</div>
 			    					All the students seeking admission in MBBS/MD program must submit the following documents:
@@ -293,7 +352,7 @@
 			    				</div>
 		    				</div>
 		    				<div style="background-color:#EDEDED;height:100px">
-		    				<font id="sixth" style="background-color:#EDEDED" size="7" color="#1F497D"><b>Tuition Fee and Other Expenses</b></font>
+		    				<font id="sixth" size="7" color="#1F497D"><b>Tuition Fee and Other Expenses</b></font>
 		    				<hr style="height:3px;border:none;border-top:3px;background-color:#473C8B;" />
 		    				</div>
 		    				<div class="row">
@@ -315,7 +374,7 @@
 		    						<div><font size="7" color="red"><b>Note:</b></font><font size="5" color="red"><b><br/>All the fees must be paid in USD either by “TT” or in “Cash” to (MNUMS) University Bank Account Only.</b></font></div>
 		    						<p>&nbsp;</p>
 		    						<div style="background-color:#EDEDED;height:100px">
-		    						<font id="seventh" style="background-color:#EDEDED" size="7" color="#1F497D"><b>Application Form :</b></font>
+		    						<font id="seventh" size="7" color="#1F497D"><b>Application Form :</b></font>
 		    						<hr style="height:3px;border:none;border-top:3px;background-color:#473C8B;" />
 		    						</div>
 		    						<div class="row">
@@ -348,7 +407,7 @@
 		    						<div class="row">
 		    							<div class="col-xs-12">
 		    								<div style="background-color:#EDEDED;height:100px">
-		    								<font id="eight" style="background-color:#EDEDED" size="7" color="#1F497D"><b>Forms Download</b></font>
+		    								<font id="eight" size="7" color="#1F497D"><b>Forms Download</b></font>
 			    							<hr style="height:3px;border:none;border-top:3px;background-color:#473C8B;" />
 			    							</div>
 			    							<div class="row">
@@ -369,40 +428,13 @@
 		    										
 		    									</div>
 		    								</div>
-			    							<%-- <form action="${pageContext.request.contextPath}/applicantAction_downLoadInputStream.action">
-				    							<button class="button button-3d button-action button-pill">DOWNLOAD</button>
-				    						</form> --%>
 		    							</div>
 		    						</div>
 		    						<p>&nbsp;</p>
-		    						
-		    						<!-- <div class="row">
-			    						<div class="col-xs-6">
-			    							<form enctype="multipart/form-data" method="post">
-						    							<label>Email:</label>
-											    		<input type="text" class="form-control" id="email" name="email"><br/>
-						    							<label>Full Name:</label>
-											    		<input type="text" class="form-control" id="username" name="username"><br/>
-						    					<div id="inputFile">
-								    				<input type="file" multiple=true name="upload"><br/>
-								    				<div id="addUpload"></div>
-							    				</div>
-							    				<p>&nbsp;</p>
-							    				<button class="button button-3d button-action button-pill" id="apply">SUBMIT</button>
-							    				<p>&nbsp;</p>
-							    			</form>
-			    						</div>
-			    						<div class="col-xs-6">
-			    							<p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p>
-											<label>You can Continue adding other attachments</label><br/>
-											<label>Click the plus</label><br/>
-			    							<button class="button button-caution button-circle button-jumbo button-small" id="addFile"><i class="fa fa-plus"></i></button><br/>
-			    						</div>
-			    					</div> -->
 		    					</div>
 		    				</div>
 		    				<div style="background-color:#EDEDED;height:170px">
-		    				<font id="ninth" style="background-color:#EDEDED" size="7" color="#1F497D"><b>MBBS/ MD PROGRAM ACCREDITATION / RECOGNITION</b></font>
+		    				<font id="ninth" size="7" color="#1F497D"><b>MBBS/ MD PROGRAM ACCREDITATION / RECOGNITION</b></font>
 		    				<hr style="height:3px;border:none;border-top:3px;background-color:#473C8B;" />
 		    				</div>
 		    				<div class="row">
@@ -442,7 +474,7 @@
 			    				</div>
 			    			</div>
 			    			<div style="background-color:#EDEDED;height:100px">
-			    			<font id="tenth" style="background-color:#EDEDED" size="7" color="#1F497D"><b>CONTACT US</b></font>
+			    			<font id="tenth" size="7" color="#1F497D"><b>CONTACT US</b></font>
 		    				<hr style="height:3px;border:none;border-top:3px;background-color:#473C8B;" />
 		    				</div>
 		    					<div class="row">
@@ -471,27 +503,29 @@
 		    						</div>
 			    					<div class="col-xs-6">
 			    					<p>&nbsp;</p><p>&nbsp;</p>
+			    						<p><font size="6" color="black">Contact Form</font></p>
 			    						<font color="black">
-			    						<p><font size="6">Contact Form</font></p>
-					    				<label>Full Name:</label><input id="c-email" class="form-control"/>
+					    				<label>Full Name:</label><input id="fullName" class="form-control"/>
 					    				<label>Email Address:</label><input id="c-email" class="form-control"/>
-					    				<label>Contact Phone Number:</label><input id="c-email" class="form-control"/>
-					    				<label>Subject: </label><input id="c-email" class="form-control"/>
-					    				<label>Detailed Question/ Inquiry:</label><input id="c-email" class="form-control"/>
-					    				<p>&nbsp;</p>
-					    				<a class="btn red-btn"><font size="6">SUBMIT</font></a>
-					    				<p>&nbsp;</p><p>&nbsp;</p>
+					    				<label>Contact Phone Number:</label><input id="contactPhoneNumber" class="form-control"/>
+					    				<label>Subject: </label><input id="subject" class="form-control"/>
+					    				<label>Detailed Question/ Inquiry:</label><input id="detail" class="form-control"/>
 					    				</font>
+					    				<p>&nbsp;</p>
+					    				<a class="btn red-btn" onclick="contect()"><font size="6">SUBMIT</font></a>
+					    				<p>&nbsp;</p><p>&nbsp;</p>
 			    					</div>
 		    					</div>
 		    				<div style="background-color:#EDEDED;height:100px">
-		    				<font id="eleth" style="background-color:#EDEDED" size="7" color="#1F497D"><b>PHOTO GALLERY</b></font>
+		    				<font id="eleth" size="7" color="#1F497D"><b>PHOTO GALLERY</b></font>
 		    				<hr style="height:3px;border:none;border-top:3px;background-color:#473C8B;" />  
 		    				</div>
-		    				<p>&nbsp;</p>
+		    				
+			    			<s:iterator var="itor" begin="13" end="20"  step="1">
+					  			<img height='400px' width='650px' src="${pageContext.request.contextPath}/images/<s:property />.jpg" class="img-responsive center-block">
+					  		</s:iterator>
+			    			<p>&nbsp;</p>
 		    				<p>&nbsp;</p><p>&nbsp;</p>
-			    			
-			    			
 		    			</div>
 	    			</div>
 	    		</div>
