@@ -5,11 +5,15 @@ import java.io.FileInputStream;
 import java.io.InputStream;
 import java.net.URLEncoder;
 import java.time.LocalDate;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
 import java.util.UUID;
 
 import org.apache.struts2.ServletActionContext;
 
 import cn.application.entity.Applicant;
+import cn.application.util.Textword;
 import cn.application.util.Word2Pdf;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
@@ -20,6 +24,7 @@ public class ApplicantAction extends BaseAction<Applicant> {
 	private String email;
 	private String username;
 	private String pdfPath;
+	private String jsonBook;
 	private String fileOrder;
 	private InputStream fileInputStream;
 	private String downloadFileName;
@@ -29,9 +34,51 @@ public class ApplicantAction extends BaseAction<Applicant> {
 	private JSONObject jsonObject =new JSONObject();
 	private JSONArray jsonArray=new JSONArray();
 	
-	public String application(){
+	public String getJsonBook() {
+		return jsonBook;
+	}
+
+	public void setJsonBook(String jsonBook) {
+		this.jsonBook = jsonBook;
+	}
+
+	public String application() throws Exception{
+		Map<String, Object> params = new HashMap<String, Object>(); 
+		JSONObject ja = JSONObject.fromObject(jsonBook);
+		Iterator<Object> it = ja.keys(); 
+		while (it.hasNext())  
+			{  
+	           String key = String.valueOf(it.next());  
+	           String value = (String) jsonObject.get(key); 
+	           if( value == null ) value = "";
+	           params.put(key, value);  
+			}  
+		
+		Textword Textword = new Textword();
+		String filePath = "E:\\myGit\\Application\\src\\main\\webapp\\application\\MONGOLIA MBBS APPLICATION FORM MODEL.docx";  //模板文件
+		String createFilePath = "E:\\write.docx";//生成文件
+		Textword.testTemplateWrite(params, filePath, createFilePath);
+		
+		File file = new File(createFilePath);
+
+		String[] fileName = new String[uploadFileName.length + 1];
+		File[] files = new File[uploadFileName.length + 1];
+		
+		for( int i = -1; i < uploadFileName.length; i++ ){
+			
+			if( i == -1 ){
+				files[ i + 1 ] = file;
+				fileName[ i + 1 ] = file.getPath();
+			}else{
+				files[ i + 1 ] = upload[i];
+				fileName[ i + 1 ] = uploadFileName[i];
+			}
+			
+		}
+		
+		
 		jsonObject.put("status", "ok");
-		int count = uploadFileName.length;
+		int count = fileName.length;
 		String path = ServletActionContext.getServletContext().getRealPath("/application");
 		String pdfPath = ServletActionContext.getServletContext().getRealPath("/pdf") + 
 				File.separator + UUID.randomUUID() + ".pdf" ;
@@ -39,7 +86,7 @@ public class ApplicantAction extends BaseAction<Applicant> {
 		for( int i = 0; i < count; i++ )
 		{
 			filePathName[i] = path + File.separator + 
-					fileUploadUtil.upload(upload[i], uploadFileName[i], path);
+					fileUploadUtil.upload(files[i], fileName[i], path);
 		}
 		Word2Pdf.fun(filePathName, pdfPath);
 		Applicant applicant = new Applicant();

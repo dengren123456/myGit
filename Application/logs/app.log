@@ -7798,3 +7798,44 @@ Unexpected Exception caught setting '_' on 'class com.opensymphony.xwork2.Action
 2017-05-10 at 15:35:20 CST INFO  org.apache.struts2.spring.StrutsSpringObjectFactory 76 <init> - Initializing Struts-Spring integration...
 2017-05-10 at 15:35:20 CST INFO  com.opensymphony.xwork2.spring.SpringObjectFactory 96 setAutowireStrategy - Setting autowire strategy to name
 2017-05-10 at 15:35:20 CST INFO  org.apache.struts2.spring.StrutsSpringObjectFactory 142 <init> - ... initialized Struts-Spring integration successfully
+2017-05-10 at 16:58:24 CST INFO  org.hibernate.Version 37 logVersion - HHH000412: Hibernate Core {5.0.9.Final}
+2017-05-10 at 16:58:24 CST INFO  org.hibernate.cfg.Environment 213 <clinit> - HHH000206: hibernate.properties not found
+2017-05-10 at 16:58:24 CST INFO  org.hibernate.cfg.Environment 317 buildBytecodeProvider - HHH000021: Bytecode provider name : javassist
+2017-05-10 at 16:58:24 CST INFO  org.hibernate.annotations.common.reflection.java.JavaReflectionManager 66 <clinit> - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2017-05-10 at 16:58:26 CST INFO  org.hibernate.dialect.Dialect 156 <init> - HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2017-05-10 at 16:58:26 CST INFO  org.hibernate.engine.jdbc.env.internal.LobCreatorBuilderImpl 124 useContextualLobCreation - HHH000424: Disabling contextual LOB creation as createClob() method threw error : java.lang.reflect.InvocationTargetException
+2017-05-10 at 16:58:27 CST WARN  org.hibernate.resource.transaction.internal.TransactionCoordinatorBuilderInitiator 52 determineStrategySelection - HHH90000018: Found use of deprecated transaction factory setting [hibernate.transaction.factory_class]; use the new TransactionCoordinatorBuilder settings [hibernate.transaction.coordinator_class] instead
+2017-05-10 at 16:58:27 CST INFO  org.hibernate.search.engine.Version 26 <clinit> - HSEARCH000034: Hibernate Search 5.5.4.Final
+2017-05-10 at 16:58:28 CST INFO  org.hibernate.tool.hbm2ddl.SchemaUpdate 105 execute - HHH000228: Running hbm2ddl schema update
+2017-05-10 at 16:58:29 CST INFO  org.hibernate.tool.schema.extract.internal.InformationExtractorJdbcDatabaseMetaDataImpl 365 processGetTableResults - HHH000262: Table not found: contact
+2017-05-10 at 16:58:29 CST INFO  org.hibernate.tool.schema.extract.internal.InformationExtractorJdbcDatabaseMetaDataImpl 365 processGetTableResults - HHH000262: Table not found: contact
+2017-05-10 at 16:58:30 CST WARN  org.hibernate.search.engine.impl.ConfigContext 346 getLuceneMatchVersion - HSEARCH000075: Configuration setting hibernate.search.lucene_version was not specified: using LUCENE_CURRENT.
+2017-05-10 at 16:58:31 CST INFO  org.apache.struts2.spring.StrutsSpringObjectFactory 76 <init> - Initializing Struts-Spring integration...
+2017-05-10 at 16:58:31 CST INFO  com.opensymphony.xwork2.spring.SpringObjectFactory 96 setAutowireStrategy - Setting autowire strategy to name
+2017-05-10 at 16:58:31 CST INFO  org.apache.struts2.spring.StrutsSpringObjectFactory 142 <init> - ... initialized Struts-Spring integration successfully
+2017-05-10 at 17:02:08 CST INFO  org.hibernate.Version 37 logVersion - HHH000412: Hibernate Core {5.0.9.Final}
+2017-05-10 at 17:02:08 CST INFO  org.hibernate.cfg.Environment 213 <clinit> - HHH000206: hibernate.properties not found
+2017-05-10 at 17:02:08 CST INFO  org.hibernate.cfg.Environment 317 buildBytecodeProvider - HHH000021: Bytecode provider name : javassist
+2017-05-10 at 17:02:08 CST INFO  org.hibernate.annotations.common.reflection.java.JavaReflectionManager 66 <clinit> - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2017-05-10 at 17:02:09 CST INFO  org.hibernate.dialect.Dialect 156 <init> - HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2017-05-10 at 17:02:10 CST INFO  org.hibernate.engine.jdbc.env.internal.LobCreatorBuilderImpl 124 useContextualLobCreation - HHH000424: Disabling contextual LOB creation as createClob() method threw error : java.lang.reflect.InvocationTargetException
+2017-05-10 at 17:02:10 CST WARN  org.hibernate.resource.transaction.internal.TransactionCoordinatorBuilderInitiator 52 determineStrategySelection - HHH90000018: Found use of deprecated transaction factory setting [hibernate.transaction.factory_class]; use the new TransactionCoordinatorBuilder settings [hibernate.transaction.coordinator_class] instead
+2017-05-10 at 17:02:10 CST INFO  org.hibernate.search.engine.Version 26 <clinit> - HSEARCH000034: Hibernate Search 5.5.4.Final
+2017-05-10 at 17:02:11 CST INFO  org.hibernate.tool.hbm2ddl.SchemaUpdate 105 execute - HHH000228: Running hbm2ddl schema update
+2017-05-10 at 17:02:11 CST WARN  org.hibernate.search.engine.impl.ConfigContext 346 getLuceneMatchVersion - HSEARCH000075: Configuration setting hibernate.search.lucene_version was not specified: using LUCENE_CURRENT.
+2017-05-10 at 17:02:12 CST INFO  org.apache.struts2.spring.StrutsSpringObjectFactory 76 <init> - Initializing Struts-Spring integration...
+2017-05-10 at 17:02:12 CST INFO  com.opensymphony.xwork2.spring.SpringObjectFactory 96 setAutowireStrategy - Setting autowire strategy to name
+2017-05-10 at 17:02:12 CST INFO  org.apache.struts2.spring.StrutsSpringObjectFactory 142 <init> - ... initialized Struts-Spring integration successfully
+2017-05-10 at 17:02:35 CST INFO  org.hibernate.Version 37 logVersion - HHH000412: Hibernate Core {5.0.9.Final}
+2017-05-10 at 17:02:35 CST INFO  org.hibernate.cfg.Environment 213 <clinit> - HHH000206: hibernate.properties not found
+2017-05-10 at 17:02:35 CST INFO  org.hibernate.cfg.Environment 317 buildBytecodeProvider - HHH000021: Bytecode provider name : javassist
+2017-05-10 at 17:02:35 CST INFO  org.hibernate.annotations.common.reflection.java.JavaReflectionManager 66 <clinit> - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2017-05-10 at 17:02:36 CST INFO  org.hibernate.dialect.Dialect 156 <init> - HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2017-05-10 at 17:02:36 CST INFO  org.hibernate.engine.jdbc.env.internal.LobCreatorBuilderImpl 124 useContextualLobCreation - HHH000424: Disabling contextual LOB creation as createClob() method threw error : java.lang.reflect.InvocationTargetException
+2017-05-10 at 17:02:36 CST WARN  org.hibernate.resource.transaction.internal.TransactionCoordinatorBuilderInitiator 52 determineStrategySelection - HHH90000018: Found use of deprecated transaction factory setting [hibernate.transaction.factory_class]; use the new TransactionCoordinatorBuilder settings [hibernate.transaction.coordinator_class] instead
+2017-05-10 at 17:02:37 CST INFO  org.hibernate.search.engine.Version 26 <clinit> - HSEARCH000034: Hibernate Search 5.5.4.Final
+2017-05-10 at 17:02:37 CST INFO  org.hibernate.tool.hbm2ddl.SchemaUpdate 105 execute - HHH000228: Running hbm2ddl schema update
+2017-05-10 at 17:02:37 CST WARN  org.hibernate.search.engine.impl.ConfigContext 346 getLuceneMatchVersion - HSEARCH000075: Configuration setting hibernate.search.lucene_version was not specified: using LUCENE_CURRENT.
+2017-05-10 at 17:02:40 CST INFO  org.apache.struts2.spring.StrutsSpringObjectFactory 76 <init> - Initializing Struts-Spring integration...
+2017-05-10 at 17:02:40 CST INFO  com.opensymphony.xwork2.spring.SpringObjectFactory 96 setAutowireStrategy - Setting autowire strategy to name
+2017-05-10 at 17:02:40 CST INFO  org.apache.struts2.spring.StrutsSpringObjectFactory 142 <init> - ... initialized Struts-Spring integration successfully

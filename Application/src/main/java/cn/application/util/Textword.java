@@ -5,7 +5,6 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
@@ -18,7 +17,6 @@ import org.apache.poi.xwpf.usermodel.XWPFRun;
 import org.apache.poi.xwpf.usermodel.XWPFTable;
 import org.apache.poi.xwpf.usermodel.XWPFTableCell;
 import org.apache.poi.xwpf.usermodel.XWPFTableRow;
-import org.junit.Test;
 
 public class Textword {
 
@@ -26,22 +24,16 @@ public class Textword {
 			   /** 
 			    * 用一个docx文档作为模板，然后替换其中的内容，再写入目标文档中。 
 			    * @throws Exception 
-			    */  
-			   @Test  
-			   public void testTemplateWrite() throws Exception {  
-			      Map<String, Object> params = new HashMap<String, Object>();  
-			      params.put("report", "2014-02-28");  
-			      params.put("appleAmt", "100.00");  
-			      params.put("bananaAmt", "200.00");  
-			      params.put("totalAmt", "300.00");  
-			      String filePath = "E:\\text.docx";  
+			    */   
+			   public void testTemplateWrite(Map<String, Object> params, String filePath, String createFilePath) throws Exception {  
+			      //String filePath = "E:\\text.docx";  
 			      InputStream is = new FileInputStream(filePath);  
 			      XWPFDocument doc = new XWPFDocument(is);  
 			      //替换段落里面的变量  
 			      this.replaceInPara(doc, params);  
 			      //替换表格里面的变量  
 			      this.replaceInTable(doc, params);  
-			      OutputStream os = new FileOutputStream("E:\\write.docx");  
+			      OutputStream os = new FileOutputStream(createFilePath);  
 			      doc.write(os);  
 			      this.close(os);  
 			      this.close(is);  
