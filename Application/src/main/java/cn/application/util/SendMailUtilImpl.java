@@ -17,7 +17,7 @@ public class SendMailUtilImpl implements SendMailUtil {
 	 * @see cn.jagl.mryt.util.SendMailUtil#sendEmail(java.lang.String)
 	 */
 	@Override
-	public boolean sendEmail(String address,String code){
+	public boolean sendEmail(String address,double code){
 		Properties props = new Properties();
 		boolean status=true;
 		Session session=null;

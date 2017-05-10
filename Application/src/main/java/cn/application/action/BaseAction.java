@@ -14,6 +14,7 @@ import com.opensymphony.xwork2.ModelDriven;
 import cn.application.service.ApplicantService;
 import cn.application.service.ContactService;
 import cn.application.util.FileUploadUtil;
+import cn.application.util.SendMailUtil;
 
 public class BaseAction<T> extends ActionSupport implements RequestAware,
 SessionAware,ApplicationAware,ModelDriven<T>{
@@ -42,7 +43,8 @@ SessionAware,ApplicationAware,ModelDriven<T>{
 	protected ContactService contactService;
 	@Resource(name="fileUploadUtil")
 	protected FileUploadUtil fileUploadUtil;
-	
+	@Resource(name="sendMailUtil")
+	protected SendMailUtil sendMailUtil;
 	
 	@Override
 	public T getModel() {

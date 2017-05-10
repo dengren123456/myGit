@@ -6,5 +6,5 @@ package cn.application.util;
  * @version 创建时间：2017年2月18日 下午4:17:35 
  */
 public interface SendMailUtil {
-	public boolean sendEmail(String address,String code);
+	public boolean sendEmail(String address,double code);
 }

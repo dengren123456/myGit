@@ -41,7 +41,7 @@
 	}
 	function submit(){
 		var dataParams = {
-				call:$('call').val(),
+				call:$('#call').val(),
 				familyName:$('#familyName').val(),
 				firstMiddleName:$('#firstMiddleName').val(),
 				age:$('#age').val(),
@@ -90,6 +90,7 @@
 				vegetarian:$('#vegetarian').val(),
 				room:$('#room').val(),
 				comments:$('#comments').val(),
+				email:$('#email').val(),
 				emergency:$('#emergency').val(),
 				homeTel2:$('#homeTel2').val(),
 				workTel2:$('#workTel2').val(),
@@ -102,17 +103,19 @@
 				dates2:$('#dates2').val(),
 			};
 		var jsonBook=JSON.stringify(dataParams);
-		$.ajax({
-			url:'${pageContext.request.contextPath}/applicantAction_application.action',
-			data:{jsonBook : jsonBook},
-			dataType:'json',
-			method:'POST',
-			success:function(data){
-				  if (data.status=='ok'){
-					  alert("Thank You!");  
-				  }
-			},
-		})
+		$('#btnHidden').attr('value',jsonBook);
+		$("#formId").submit();
+// 		$.ajax({
+// 			url:'${pageContext.request.contextPath}/applicantAction_application.action',
+// 			data:{jsonBook : jsonBook},
+// 			dataType:'json',
+// 			method:'POST',
+// 			success:function(data){
+// 				  if (data.status=='ok'){
+// 					  alert("Thank You!");  
+// 				  }
+// 			},
+// 		})
 	}
 
 </script> 
@@ -167,6 +170,7 @@
 		    			</div>
 		    			<div class="row">
 	    					<div class="col-xs-12">
+	    						<p>&nbsp;</p>
 	    						<font style="background-color:#EDEDED" size="6" color="#1F497D"><b>Prominent Features</b></font><br/>
 	    						The Mongolian National University of Medical Sciences <font size="5" color="#1F497D"><b>(MNUMS)</b></font> is offering 6 years MBBS/MD program in English Medium. The prominent features of the program are as follows:
 	    						<ul>
@@ -176,19 +180,20 @@
 	    							<li>Free Guidance and Assistance for  USME, PLAB, Canadian Evaluation Exam, Australian Exam, MCI Exam, PMDC Exam, MOH Exam preparation</li>
 	    							<li>Free Guidance and Assistance for Post Graduate Studies in USA, Canada, Australia, UK and Europe.</li>
 	    							<li>Free Guidance and Assistance for Exchange Program in USA, Canada, Australia, UK and Europe during MBBS/MD Studies at <font size="5" color="#1F497D"><b>(MNUMS)</b></font></li>
-	    							<li>MBBS/MD program is of 6 years duration. From year 1 to 5 the students have to study Basic Medicine including Clinical Medicine through Lectures, Seminars, Lab Work, and Clinical Rotations; In year 6 the student has to take  rotating Clinical Internship either in a Teaching Hospital in Mongolia or in any other MNUMS approved Teaching Hospital in any Country.</li>
+	    							<li>MBBS/MD program is of 6 years duration. From year 1 to 5 the students have to study Basic Medicine including Clinical Medicine through Lectures, Seminars, Lab Work, and Clinical Rotations; In year 6 the student has to take  rotating Clinical Internship either in a Teaching Hospital in Mongolia or in any other <font size="5" color="#1F497D"><b>(MNUMS)</b></font> approved Teaching Hospital in any Country.</li>
 	    							<li>The Medium of Instructions of the MBBS/MD program is English; so, all the students admitted in this program must be Fluent in English. </li>
-	    							<li>The British and American Curriculum and Text Books are used in MBBS/MD program offered by MNUMS.</li>
-	    							<li>MBBS/MD program offered by MNUMS is administered and monitored by Mongolia- Canada Joint Management Committee.</li>
+	    							<li>The British and American Curriculum and Text Books are used in MBBS/MD program offered by <font size="5" color="#1F497D"><b>(MNUMS)</b></font>.</li>
+	    							<li>MBBS/MD program offered by <font size="5" color="#1F497D"><b>(MNUMS)</b></font> is administered and monitored by Mongolia- Canada Joint Management Committee.</li>
 	    							<li>Excellent Residential Facilities for both Male and Female Students</li>
 	    							<li>Arabian, Indian, Western/ European Style Food and Mongolian Food (Halal / Vegetarian) available.</li>
 	    							<li><font size="5" color="#1F497D"><b>(MNUMS)</b></font> is located in the center of Ulaanbaatar City - The Capital of Mongolia</li>
 	    							<li>Scholarship for Extra Ordinary Students Available</li>
 	    							<li>Guaranteed Admission in Post Graduate Programs in Partner Universities in USA, Canada, UK, Australia and Europe</li>
-	    							<li>Guaranteed Transfer during Studies in (MNUMS) for 1 year  in Partner Universities in USA, Canada, UK, Australia and Europe</li>
+	    							<li>Guaranteed Transfer during Studies in <font size="5" color="#1F497D"><b>(MNUMS)</b></font> for 1 year  in Partner Universities in USA, Canada, UK, Australia and Europe</li>
 	    							<li>Free Counselling and Guidance for Future Jobs in Partner Hospitals /Universities in Middle East, USA, Canada, UK, Australia and Europe</li>
 	    							<li>Guaranteed Jobs for Top Qualified Students (After Graduation From <font size="5" color="#1F497D"><b>MNUMS</b></font>)  as Doctor in Partner Hospitals /Universities in Middle East, USA, Canada, UK, Australia and Europe</li>
 	    						</ul>
+	    						<p>&nbsp;</p>
 	    					</div>
 	    				</div>
 		    			<div>
@@ -207,13 +212,15 @@
      									Our aim is to transform Mongolian National University of Medical Sciences from one of Mongolia’s premiere universities to one of Asian, then world’s best universities.  In order to achieve this goal, we are implementing several projects to improve our training quality and environment, renovating training curriculum and constructing university hospital by the Japanese government aid, which will be finish by 2017. 
     									I would like to thank all of our partners for your continuous support to our university over the years and looking forward to welcome International Students and faculty from all over the world.
 										
-									</p> 
+									</p>
+									<p>&nbsp;</p> 
 		    					</div>
-		    					<div class="col-xs-6">
+		    					<div class="col-xs-6 text-center">
 		    					&nbsp;<br/>
-			    					<img height='300px' width='540px' src="${pageContext.request.contextPath}/images/picture-1.jpg" class="img-responsive center-block"> 					
+			    					<img height='300px' width='540px' src="${pageContext.request.contextPath}/images/1.jpg" class="img-responsive center-block"> 					
 			    					<font size="6" color="#1F497D"><b>Professor G. Batbaatar, The President</b></font>
 			    				</div>
+			    				
 		    				</div>
 		    				<div style="background-color:#EDEDED;height:100px">
 		    				<font id="third" size="7" color="#1F497D"><b>Introduction and History</b></font>
@@ -260,6 +267,7 @@
 											School of Medicine established
 											<br/><b>1929</b>    School of Nursing established
 				    					</p>
+				    					<p>&nbsp;</p>
 				    				</div>
 		    					</div>
 		    				<div style="background-color:#EDEDED;height:100px">
@@ -268,6 +276,7 @@
 		    				</div>
 		    				<div class="row">
 		    					<div class="col-xs-12">
+		    						<p>&nbsp;</p>
 			    					<p><font size="5" color="red"><b>Note: We welcome students from all over the world and we also welcome both Male and Female Students. We strongly encourage female students to apply.</b></font></p>
 			    					<p>The admission Requirements for Foreign Students from Different Countries of the world are as follows (The Qualifications shown below are the minimum required qualifications for admission in the MBBS/MD program; students with higher qualifications are also eligible to apply for this program).  :</p>
 			    					<font style="background-color:#EDEDED" size="6" color="#1F497D"><b>1.	 Students From USA and Canada</b></font><br/>
@@ -333,10 +342,12 @@
 			    						<li>A proof of Satisfactory completion of “12 years” of formal School Education (student must have studied Chemistry/ Biology in High School). e.g. Higher Secondary School Certificate / HSC / A’ level/ International Baccalaureate or equivalent examination.</li>
 			    						<li>Must be Fluent in English Language</li>
 			    					</ul>
+			    					<p>&nbsp;</p>
 			    					<div style="background-color:#EDEDED;height:100px">
 			    					<font id="fifth" size="7" color="#1F497D"><b>Required Documents</b></font>
 			    					<hr style="height:3px;border:none;border-top:3px;background-color:#473C8B;" />
 			    					</div>
+			    					<p>&nbsp;</p>
 			    					All the students seeking admission in MBBS/MD program must submit the following documents:
 									<ol type="1">
 										<li>Application Form (can be completed online or can be submitted through email or  by Air Mail)
@@ -352,10 +363,12 @@
 									</ol>
 			    				</div>
 		    				</div>
+		    				<p>&nbsp;</p>
 		    				<div style="background-color:#EDEDED;height:100px">
 		    				<font id="sixth" size="7" color="#1F497D"><b>Tuition Fee and Other Expenses</b></font>
 		    				<hr style="height:3px;border:none;border-top:3px;background-color:#473C8B;" />
 		    				</div>
+		    				<p>&nbsp;</p>
 		    				<div class="row">
 		    					<div class="col-xs-12">
 		    						<table border="6px" align="center" width="100%" bordercolor="#473C8B">
@@ -402,7 +415,7 @@
 												</b>											    	
 										    </li>
 										</ol>
-									
+										<p>&nbsp;</p>
 			    						</div>
 		    						</div>
 		    						<div class="row">
@@ -411,6 +424,7 @@
 		    								<font id="eight" size="7" color="#1F497D"><b>Forms Download</b></font>
 			    							<hr style="height:3px;border:none;border-top:3px;background-color:#473C8B;" />
 			    							</div>
+			    							<p>&nbsp;</p>
 			    							<div class="row">
 		    									<div class="col-xs-3">
 		    										<a href="${pageContext.request.contextPath}/applicantAction_downLoadInputStream.action?fileOrder=1"><img src="${pageContext.request.contextPath}/images/word.jpg" class="img-responsive center-block"></a>
@@ -434,10 +448,11 @@
 		    						<p>&nbsp;</p>
 		    					</div>
 		    				</div>
-		    				<div style="background-color:#EDEDED;height:170px">
+		    				<div style="background-color:#EDEDED;height:100px">
 		    				<font id="ninth" size="7" color="#1F497D"><b>MBBS/ MD PROGRAM ACCREDITATION / RECOGNITION</b></font>
 		    				<hr style="height:3px;border:none;border-top:3px;background-color:#473C8B;" />
 		    				</div>
+		    				<p>&nbsp;</p>
 		    				<div class="row">
 		    					<div class="col-xs-12">
 			    					<p>MBBS/ MD Program offered by <font size="5" color="#1F497D"><b>(MNUMS)</b></font> is accredited/ recognized by the following organizations:</p>
@@ -445,6 +460,7 @@
 			    						<li>
 			    							<font size="5" color="#1F497D"><b>(MNUMS)</b></font> is listed in <font size="5" color="#1F497D"><b>WHO “FAIMER-World Directory of Medical Schools.” and “Avicenna Directory for Medicine”</b></font><br/>
 			    							<font size="5" color="#1F497D"><b>(See Website: <a>https://search.wdoms.org/home/SchoolDetail/F0001883</a>)<br/></b></font>
+			    							<p>&nbsp;</p>
 			    							<img height='400px' width='650px' src="${pageContext.request.contextPath}/images/picture-3.jpg" class="img-responsive center-block">
 			    						</li>
 			    						<li>
@@ -531,12 +547,12 @@
 	    			</div>
 	    		</div>
 	    	</div>
-  			<div class="col-md-2 col-md-pull-10" style="background:#5C076A">
+  			<div class="col-md-1 col-md-pull-11" style="background:#5C076A;z-index: 9999; position: fixed ! important; left: 0px; top: 0;">
   					<div class="row left-nav"><div class="col-xs-12">&nbsp;</div></div>
-			  		<div class="row left-nav"><div class="col-xs-12" style="background-color:#FF0000"><a href="#first"><font color="white">HISTORY</font></a></div></div>
-			  		<div class="row left-nav"><div class="col-xs-12" style="background-color:#FF0000"><a href="#second"><font color="white">MESSAGE FROM THE PRESIDENT</font></a></div></div>
+			  		<div class="row left-nav"><div class="col-xs-12" style="background-color:#436EEE"><a href="#first"><font color="white">HISTORY</font></a></div></div>
+			  		<div class="row left-nav"><div class="col-xs-12" style="background-color:#436EEE"><a href="#second"><font color="white">MESSAGE FROM THE PRESIDENT</font></a></div></div>
 			  		<div class="row left-nav"><div class="col-xs-12">&nbsp;</div></div>
-			  		<div class="row left-nav"><div class="col-xs-12" style="background-color:#FF0000"><a href="#third"><font color="white">Introduction and History</font></a></div></div>
+			  		<div class="row left-nav"><div class="col-xs-12" style="background-color:#436EEE"><a href="#third"><font color="white">Introduction and History</font></a></div></div>
 			  		<div class="row left-nav"><div class="col-xs-12">&nbsp;</div></div>
 			  		<div class="row left-nav"><div class="col-xs-12" style="background-color:#FF0000"><a href="#forth"><font color="white">ADMISSION REQUIREMENTS</font></a></div></div>
 			  		<div class="row left-nav"><div class="col-xs-12">&nbsp;</div></div>

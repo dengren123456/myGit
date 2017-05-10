@@ -13,6 +13,7 @@ import java.util.UUID;
 import org.apache.struts2.ServletActionContext;
 
 import cn.application.entity.Applicant;
+import cn.application.util.ApplicantSn;
 import cn.application.util.Textword;
 import cn.application.util.Word2Pdf;
 import net.sf.json.JSONArray;
@@ -49,14 +50,18 @@ public class ApplicantAction extends BaseAction<Applicant> {
 		while (it.hasNext())  
 			{  
 	           String key = String.valueOf(it.next());  
-	           String value = (String) jsonObject.get(key); 
-	           if( value == null ) value = "";
+	           String value = (String) ja.get(key); 
+	           if( value == null ){
+	        	   value = "";
+	           }
 	           params.put(key, value);  
 			}  
-		
+		String email = (String) params.get("email1");
+		String username = (String) params.get("firstMiddleName") + (String) params.get("familyName");
 		Textword Textword = new Textword();
-		String filePath = "E:\\myGit\\Application\\src\\main\\webapp\\application\\MONGOLIA MBBS APPLICATION FORM MODEL.docx";  //模板文件
-		String createFilePath = "E:\\write.docx";//生成文件
+		String path = ServletActionContext.getServletContext().getRealPath("/application");
+		String filePath = path + File.separator + "MONGOLIA MBBS APPLICATION FORM MODEL.docx";  //模板文件
+		String createFilePath = path + File.separator + "model.docx";//生成文件
 		Textword.testTemplateWrite(params, filePath, createFilePath);
 		
 		File file = new File(createFilePath);
@@ -68,7 +73,7 @@ public class ApplicantAction extends BaseAction<Applicant> {
 			
 			if( i == -1 ){
 				files[ i + 1 ] = file;
-				fileName[ i + 1 ] = file.getPath();
+				fileName[ i + 1 ] = file.getName();
 			}else{
 				files[ i + 1 ] = upload[i];
 				fileName[ i + 1 ] = uploadFileName[i];
@@ -79,7 +84,7 @@ public class ApplicantAction extends BaseAction<Applicant> {
 		
 		jsonObject.put("status", "ok");
 		int count = fileName.length;
-		String path = ServletActionContext.getServletContext().getRealPath("/application");
+		//String path = ServletActionContext.getServletContext().getRealPath("/application");
 		String pdfPath = ServletActionContext.getServletContext().getRealPath("/pdf") + 
 				File.separator + UUID.randomUUID() + ".pdf" ;
 		String[] filePathName = new String[count];
@@ -89,8 +94,16 @@ public class ApplicantAction extends BaseAction<Applicant> {
 					fileUploadUtil.upload(files[i], fileName[i], path);
 		}
 		Word2Pdf.fun(filePathName, pdfPath);
+		
+		if( file.exists() ){
+			file.delete();
+		}
+		
 		Applicant applicant = new Applicant();
+		
+		double code = ApplicantSn.test();
 		try{
+			applicant.setApplicantSn(code);
 			applicant.setEamil(email);
 			applicant.setUsername(username);
 			applicant.setUploadtime(LocalDate.now());
@@ -100,6 +113,7 @@ public class ApplicantAction extends BaseAction<Applicant> {
 			jsonObject.put("status", "nook");
 		}
 		System.out.println(pdfPath);
+		sendMailUtil.sendEmail(email, code);
 		return "jsonObject";
 	}
 	
@@ -134,10 +148,11 @@ public class ApplicantAction extends BaseAction<Applicant> {
 		JSONArray array=new JSONArray();
 		for(Applicant applicant:applicantService.queryByPage(hql, page, rows)){
 			JSONObject jo=new JSONObject();
+			jo.put("applicantSn", applicant.getApplicantSn());
 			jo.put("username", applicant.getUsername());
 			jo.put("email", applicant.getEamil());
 			jo.put("pdfPath", applicant.getPdfPath());
-			jo.put("uploadtime", applicant.getUploadtime());
+			jo.put("uploadtime", applicant.getUploadtime().toString());
 			array.add(jo);
 		}
 		jsonObject.put("rows", array);

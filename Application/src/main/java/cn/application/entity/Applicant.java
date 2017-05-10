@@ -17,6 +17,7 @@ public class Applicant implements java.io.Serializable{
 	private static final long serialVersionUID = 1L;
 	
 	private Integer id;
+	private double applicantSn;
 	private String eamil;
 	private String username;
 	private String pdfPath;
@@ -35,11 +36,20 @@ public class Applicant implements java.io.Serializable{
 		this.id = id;
 	}
 	
+	@Column(name="applicantSn",unique=true,nullable=false,length=100)
+	public double getApplicantSn() {
+		return applicantSn;
+	}
+
+	public void setApplicantSn(double applicantSn) {
+		this.applicantSn = applicantSn;
+	}
+	
+	
 	@Column(name="email",length=100)
 	public String getEamil() {
 		return eamil;
 	}
-
 	public void setEamil(String eamil) {
 		this.eamil = eamil;
 	}
