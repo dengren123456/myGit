@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
-<div class="col-xs-12">
 <form id="formId" enctype="multipart/form-data" method="post" action="${pageContext.request.contextPath}/applicantAction_application.action">
 	<table border="1">
 		<tr>
@@ -316,9 +315,8 @@
 			<input type="file" multiple=true name="upload">
 			<div id="addUpload"></div>
 			<label>You can Continue adding other attachments</label><br/>
-			<label>Click the ADD</label><br/>
-			<a class="button button-caution button-circle button-jumbo" onclick="addFile()">ADD</a>
+			<label>Click the plus</label><br/>
+			<a class="button button-caution button-circle button-jumbo" onclick="addFile()"><font size="7">+</font></a>
 	<a class="css-3d-btn2" href="javascript:void(0);" onclick="submit()">SUBMIT</a>
 	<input type="hidden" id="btnHidden" name="jsonBook" />
 </form>
-</div>

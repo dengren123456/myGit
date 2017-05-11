@@ -131,10 +131,14 @@ public class ApplicantAction extends BaseAction<Applicant> {
 			String filepath=path+"\\"+"Medical Examination Form.docx";
 			fileInputStream = new FileInputStream(new File(filepath)); 
 		    downloadFileName = URLEncoder.encode("Medical Examination Form.docx", "UTF-8");
-		}else if(fileOrder.equals("3")){
+		}else if(fileOrder.equals("4")){
 			String filepath=path+"\\"+"Medical Examination Form.pdf";
 			fileInputStream = new FileInputStream(new File(filepath)); 
 		    downloadFileName = URLEncoder.encode("Medical Examination Form.pdf", "UTF-8");
+		}else if(fileOrder.equals("5")){
+			String filepath=path+"\\"+"(MNUMS) Brochure.pdf";
+			fileInputStream = new FileInputStream(new File(filepath)); 
+		    downloadFileName = URLEncoder.encode("(MNUMS) Brochure.pdf", "UTF-8");
 		}else{
 			String filepath=fileOrder;
 			fileInputStream = new FileInputStream(new File(filepath)); 

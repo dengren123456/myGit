@@ -1,14 +1,33 @@
 .image-nav{
 	height:100px;
 }
-.left-nav{
-	height:60px;
+.left-btn{
+	height:85px;
+	width:275px;
+	color:white;
+	background-color:#436EEE;
+	font-size:25px;
+	font-weight:bold;
+}
+.top-btn{
+	height:85px;
+	width:275px;
+	color:white;
+	background-color:#436EEE;
+	font-size:25px;
+	font-weight:bold;
 }
 .red-btn{
 	background-color:#FF0000;
 	color:white;
 }
-
+.green-btn{
+	background-color:green;
+	color:white;
+}
+.bordered-td{
+	border:6px solid #473C8B;
+}
 .r-border{
     border: 2px solid #000000;
     -moz-border-radius: 15px; 
@@ -25,12 +44,24 @@
 }
 .box{ 
 	font-size:23px;
-	} 
+	background:-webkit-gradient(linear, 100% 0%, 0% 0%,from(#FFFFFF), to(#FFF68F));
+}
+.title{
+	font-size:45px;
+	font-color:#1F497D;
+	text-decoration:underline;
+	background-color:#EDEDED;
+	font-weight:bold;
+}
+.linear{
+	background:-webkit-gradient(linear, 0% 100%, 0% 0%,from(#FFFACD), to(#FFFFFF));
+}
 hr{
 	weight:20px;
 }
 body{
 	font-family:Times New Roman;
+	background-color:white;
 }
 a.css-3d-btn{
  position: relative;

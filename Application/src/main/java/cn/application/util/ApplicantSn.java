@@ -8,7 +8,7 @@ public class ApplicantSn {
 //		 System.out.println(test(n));   System.out.println(test(n));  
 //		 }   
 	 public static double test() {   
-		 String str = new SimpleDateFormat("yyyyMM").format(new java.util.Date());   
+		 String str = new SimpleDateFormat("yyyyMMdd").format(new java.util.Date());   
 		 double m = Long.parseLong((str)) * 10000;   
 		 double ret = m + n;   
 		 n = n + 1;   

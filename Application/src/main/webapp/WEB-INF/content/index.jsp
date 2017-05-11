@@ -34,7 +34,7 @@
 	    </div>
 	    <div class="row">
 	    	<div class="col-xs-4">&nbsp;</div>
-	  		<div class="col-xs-4">&nbsp;</div>
+	  		<div class="col-xs-4 text-center"><p class="introduction">You are Visitor No.: 02017000</p></div>
 	  		<div class="col-xs-4">&nbsp;</div>
 	    </div>
 </body>
