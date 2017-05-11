@@ -26,7 +26,7 @@
 	function showForm(){
 		$("#form").show();
 	}
-	function contect(){
+	function contact(){
 		$.ajax({
 			url:'${pageContext.request.contextPath}/contactAction_contact.action',
 			data:{fullName:$("#fullName").val(),email:$("#c-email").val(),contactPhoneNumber:$("#contactPhoneNumber").val(),subject:$("#subject").val(),detail:$("#detail").val()},
@@ -529,7 +529,7 @@
 					    				<label>Detailed Question/ Inquiry:</label><input id="detail" class="form-control"/>
 					    				</font>
 					    				<p>&nbsp;</p>
-					    				<a class="btn red-btn" onclick="contect()"><font size="6">SUBMIT</font></a>
+					    				<a class="btn red-btn" onclick="contact()"><font size="6">SUBMIT</font></a>
 					    				<p>&nbsp;</p><p>&nbsp;</p>
 			    					</div>
 		    					</div>

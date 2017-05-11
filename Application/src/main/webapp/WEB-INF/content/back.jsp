@@ -18,7 +18,7 @@
 		$('<form method="post" action="${pageContext.request.contextPath}/applicantAction_downLoadInputStream.action" ><input type="text" value="'+row.pdfPath+'" name="fileOrder"/><input type="text" value="'+row.username+'" name="username"/></form>').appendTo('body').submit().remove();
 	}
 	
-	$(function(){
+	function application(){
 		$('#box').datagrid({    
 		    url:'${pageContext.request.contextPath}/applicantAction_queryByPage.action',
 		    fitColumns:true,
@@ -35,24 +35,36 @@
 			pageSize:15,
 			pageList:[15,30,50,90], 
 		    columns:[[
-				{field:'username',title:'username',width:'25%',align:'center'},
+				{field:'applicantSn',title:'serialNumber',width:'20%',align:'center'},
+				{field:'username',title:'name',width:'25%',align:'center'},
 		        {field:'email',title:'email',width:'25%',align:'center'},
-		        {field:'uploadtime',title:'uploadtime',width:'25%',align:'center'},
+		        {field:'uploadtime',title:'uploadtime',width:'15%',align:'center'},
 		        {field:'pdfPath',title:'pdfPath',align:'center',hidden:'true'},
-		        {field:'down',title:'',width:'25%',align:'center',formatter:function(value,row,index){
+		        {field:'down',title:'',width:'15%',align:'center',formatter:function(value,row,index){
 		        	return "<a href='#' onclick='filedown(" + index +")' style='text-decoration:none'>"+"download"+"</a>"
 		        	}
 		        }
 		    ]]
 		});
 
-	})
+	}
+	
 	</script>
 </head>
 <body class="easyui-layout">
     <div id="divHeader" data-options="region:'north',border:false">
     	<font size="7">MANAGER</font>
     </div>
+    <div data-options="region:'west',title:'West',split:true" style="width:100px;">
+    	<ul>   
+            <li>   
+                <span><a href="#" onclick="application()">Application</a></span>   
+            </li>   
+            <li>   
+                <span><a href="#" onclick="contact()">Contact</a></span>   
+            </li>    
+        </ul>   
+    </div> 
     <div id="divContent" data-options="region:'center',title:false">
         <div id="tabs" class="easyui-tabs" data-options="fit:true,border:false">
             <div id="divTitleBar" title="Page">
