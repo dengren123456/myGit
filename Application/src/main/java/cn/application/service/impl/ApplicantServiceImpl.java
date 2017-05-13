@@ -8,7 +8,10 @@ import cn.application.service.ApplicantService;
 
 @Service("applicantService")
 public class ApplicantServiceImpl extends BaseServiceImpl<Applicant> implements ApplicantService {
-
-
+	
+	@Override
+	public long getBySelect(String select){
+		return applicantDao.getBySelect(select);
+	}
 
 }

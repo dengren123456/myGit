@@ -14,6 +14,7 @@ import org.apache.struts2.ServletActionContext;
 
 import cn.application.entity.Applicant;
 import cn.application.util.ApplicantSn;
+import cn.application.util.TdCode;
 import cn.application.util.Textword;
 import cn.application.util.Word2Pdf;
 import net.sf.json.JSONArray;
@@ -27,6 +28,7 @@ public class ApplicantAction extends BaseAction<Applicant> {
 	private String pdfPath;
 	private String jsonBook;
 	private String fileOrder;
+	private String select;
 	private InputStream fileInputStream;
 	private String downloadFileName;
 	private File[] upload;
@@ -43,9 +45,11 @@ public class ApplicantAction extends BaseAction<Applicant> {
 		this.jsonBook = jsonBook;
 	}
 
+	@SuppressWarnings("static-access")
 	public String application() throws Exception{
 		Map<String, Object> params = new HashMap<String, Object>(); 
 		JSONObject ja = JSONObject.fromObject(jsonBook);
+		@SuppressWarnings("unchecked")
 		Iterator<Object> it = ja.keys(); 
 		while (it.hasNext())  
 			{  
@@ -80,9 +84,6 @@ public class ApplicantAction extends BaseAction<Applicant> {
 			}
 			
 		}
-		
-		
-		jsonObject.put("status", "ok");
 		int count = fileName.length;
 		//String path = ServletActionContext.getServletContext().getRealPath("/application");
 		String pdfPath = ServletActionContext.getServletContext().getRealPath("/pdf") + 
@@ -102,21 +103,31 @@ public class ApplicantAction extends BaseAction<Applicant> {
 		Applicant applicant = new Applicant();
 		
 		double code = ApplicantSn.test();
+		
+		
+		String codeFilePath = ServletActionContext.getServletContext().getRealPath("/TdCode") + File.separator + username + ".jpg";
+		
+		TdCode tdCode = new TdCode();
+		tdCode.code(pdfPath, codeFilePath);
+		codeFilePath = "/TdCode" + File.separator + username + ".jpg";
 		try{
 			applicant.setApplicantSn(code);
 			applicant.setEamil(email);
 			applicant.setUsername(username);
 			applicant.setUploadtime(LocalDate.now());
 			applicant.setPdfPath(pdfPath);
+			applicant.setCodeFilePath(codeFilePath);
 			applicantService.save(applicant);
 		}catch(Exception e){
-			jsonObject.put("status", "nook");
 		}
 		System.out.println(pdfPath);
 		sendMailUtil.sendEmail(email, code);
-		return "jsonObject";
+		session.put("applicantSn", code);
+		session.put("uploadtime", LocalDate.now());
+		return "applicanted";
 	}
 	
+	//下载附件
 	public String downLoadInputStream() throws Exception {
 		String path = ServletActionContext.getServletContext().getRealPath("/application");
 		if(fileOrder.equals("1")){
@@ -147,6 +158,7 @@ public class ApplicantAction extends BaseAction<Applicant> {
 		return SUCCESS;
 	}
 	
+	//后台查询所有数据
 	public String queryByPage(){
 		String hql="select a from Applicant a";
 		JSONArray array=new JSONArray();
@@ -157,6 +169,7 @@ public class ApplicantAction extends BaseAction<Applicant> {
 			jo.put("email", applicant.getEamil());
 			jo.put("pdfPath", applicant.getPdfPath());
 			jo.put("uploadtime", applicant.getUploadtime().toString());
+			jo.put("codeFilePath", applicant.getCodeFilePath());
 			array.add(jo);
 		}
 		jsonObject.put("rows", array);
@@ -164,6 +177,11 @@ public class ApplicantAction extends BaseAction<Applicant> {
 		return "jsonObject";
 	}
 	
+	
+	public String select(){
+		jsonObject.put("status", applicantService.getBySelect(select));
+		return "jsonObject";
+	}
 	
 	
 	public String getEmail() {
@@ -195,6 +213,14 @@ public class ApplicantAction extends BaseAction<Applicant> {
 
 	public void setFileOrder(String fileOrder) {
 		this.fileOrder = fileOrder;
+	}
+
+	public String getSelect() {
+		return select;
+	}
+
+	public void setSelect(String select) {
+		this.select = select;
 	}
 
 	public InputStream getFileInputStream() {

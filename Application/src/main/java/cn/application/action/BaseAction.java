@@ -13,6 +13,7 @@ import com.opensymphony.xwork2.ModelDriven;
 
 import cn.application.service.ApplicantService;
 import cn.application.service.ContactService;
+import cn.application.service.VisitService;
 import cn.application.util.FileUploadUtil;
 import cn.application.util.SendMailUtil;
 
@@ -41,6 +42,8 @@ SessionAware,ApplicationAware,ModelDriven<T>{
 	protected ApplicantService applicantService;
 	@Resource(name="contactService")
 	protected ContactService contactService;
+	@Resource(name="visitService")
+	protected VisitService visitService;
 	@Resource(name="fileUploadUtil")
 	protected FileUploadUtil fileUploadUtil;
 	@Resource(name="sendMailUtil")

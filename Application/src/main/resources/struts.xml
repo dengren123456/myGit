@@ -28,8 +28,8 @@
 				<param name="contentDisposition">attachment;filename="${downloadFileName}"</param>
 				<param name="bufferSize">8192</param>
 			</result>
-			<result name="next">
-				/WEB-INF/content/index.jsp
+			<result name="applicanted">
+				/WEB-INF/content/success.jsp
 			</result>			
 		</action>
 		<action name="contactAction_*"  class="cn.application.action.ContactAction" method="{1}">
@@ -46,6 +46,25 @@
 				<param name="contentType">text/html</param>
 				<!-- 设置只序列Action的map属性 -->
 				<param name="root">jsonObject</param>
+			</result>		
+		</action>
+		<action name="visitAction_*"  class="cn.application.action.VisitAction" method="{1}">
+			<result name="jsonArray" type="json">
+				为该Result指定参数
+				<param name="noCache">true</param>
+				<param name="contentType">text/html</param>
+				设置只序列Action的map属性
+				<param name="root">jsonArray</param>
+			</result>
+			<result name="jsonObject" type="json">
+				为该Result指定参数
+				<param name="noCache">true</param>
+				<param name="contentType">text/html</param>
+				设置只序列Action的map属性
+				<param name="root">jsonObject</param>
+			</result>
+			<result name="success">
+				/WEB-INF/content/applicationForm.jsp
 			</result>		
 		</action>
     	<action name="*">

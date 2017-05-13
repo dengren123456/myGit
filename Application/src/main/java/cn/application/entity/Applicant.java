@@ -22,6 +22,7 @@ public class Applicant implements java.io.Serializable{
 	private String username;
 	private String pdfPath;
 	private LocalDate uploadtime;
+	private String codeFilePath;
 
 	
 	
@@ -79,6 +80,16 @@ public class Applicant implements java.io.Serializable{
 
 	public void setUploadtime(LocalDate uploadtime) {
 		this.uploadtime = uploadtime;
+	}
+
+	
+	@Column(name="fileCodePatn",length=100)
+	public String getCodeFilePath() {
+		return codeFilePath;
+	}
+
+	public void setCodeFilePath(String codeFilePath) {
+		this.codeFilePath = codeFilePath;
 	}
 	
 	

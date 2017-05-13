@@ -41,6 +41,7 @@
 			<list>
 				<value>cn.application.entity.Applicant</value>
 				<value>cn.application.entity.Contact</value>
+				<value>cn.application.entity.Visit</value>
 			</list>
 		</property>
 		<property name="hibernateProperties">

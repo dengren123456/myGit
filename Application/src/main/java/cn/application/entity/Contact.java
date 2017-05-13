@@ -2,6 +2,8 @@ package cn.application.entity;
 
 import static javax.persistence.GenerationType.IDENTITY;
 
+import java.time.LocalDate;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -20,6 +22,7 @@ private static final long serialVersionUID = 1L;
 	private String contactPhoneNumber;
 	private String subject;
 	private String detail;
+	private LocalDate time;
 
 	
 	
@@ -74,6 +77,15 @@ private static final long serialVersionUID = 1L;
 	public void setDetail(String detail) {
 		this.detail = detail;
 	}
+	@Column(name="time")
+	public LocalDate getTime() {
+		return time;
+	}
+
+	public void setTime(LocalDate time) {
+		this.time = time;
+	}
+	
 	
 	
 	

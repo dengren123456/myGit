@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 import cn.application.dao.ApplicantDao;
 import cn.application.dao.BaseDao;
 import cn.application.dao.ContactDao;
+import cn.application.dao.VisitDao;
 import cn.application.service.BaseService;
 
 
@@ -54,6 +55,8 @@ public class BaseServiceImpl<T> implements BaseService<T> {
 	protected ApplicantDao applicantDao;
 	@Resource(name="contactDao")
 	protected ContactDao contactDao;
+	@Resource(name="visitDao")
+	protected VisitDao visitDao;
 
 	
 	

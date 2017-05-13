@@ -34,7 +34,7 @@
 			method:'POST',
 			success:function(data){
 				  if (data.status=='ok'){
-					  alert("Thank You!");  
+					  alert("Thanks for your Inquiry. We will contact you soon.");  
 				  }
 			},
 		})
@@ -147,21 +147,24 @@
 						</div>
 						<div style="background:#5C076A;height:60px;" id="top">&nbsp;</div>
 						<div class="row text-center" style="background:#5C076A;height:140px;">
-			    			<div class="col-xs-1">&nbsp;</div>
-			  				<div class="col-xs-2"><a href="#second" class="btn left-btn">Message From <br/>The President</a></div>
+							<div class="col-xs-1">&nbsp;</div>
+							<div class="col-xs-1">&nbsp;</div>
+			  				<div class="col-xs-1"><a href="#second" class="btn left-btn">Message From <br/>The President</a></div>
 			  				<div class="col-xs-1">&nbsp;</div>
-			  				<div class="col-xs-2"><a href="#forth" class="btn left-btn">Admission <br/>Requirements</a></div>
+			  				<div class="col-xs-1"><a href="#forth" class="btn left-btn">Admission <br/>Requirements</a></div>
 			  				<div class="col-xs-1">&nbsp;</div>
-			  				<div class="col-xs-2"><a href="#seventh" class="btn left-btn">Application <br/>Form</a></div>
+			  				<div class="col-xs-1"><a href="#seventh" class="btn left-btn"><font size=2>&nbsp;<br/></font>Application Form</a></div>
 			  				<div class="col-xs-1">&nbsp;</div>
-			  				<div class="col-xs-2"><a href="#tenth" class="btn left-btn"><font size=2>&nbsp;<br/></font>Contact Us</a></div>
+			  				<div class="col-xs-1"><a href="#tweth" class="btn left-btn"><font size=2>&nbsp;<br/></font>News & Events</a></div>
+			  				<div class="col-xs-1">&nbsp;</div>
+			  				<div class="col-xs-1"><a href="#tenth" class="btn left-btn"><font size=2>&nbsp;<br/></font>Contact Us</a></div>
 			    		</div>
 	    	</div>
 	    </div>
 	    <div class="row">
 		    <div class="col-xs-2 text-center" style="background:#5C076A">
 	  					<div class="row"><div class="col-xs-12">&nbsp;</div></div>
-				  		<div class="row"><div class="col-xs-12"><a href="#first" class="btn left-btn">MBBS/ MD<br/> Program</a></div></div>
+				  		<div class="row"><div class="col-xs-12"><a href="#first" class="btn left-btn"><font size=2>&nbsp;<br/></font>MBBS/ MD Program</a></div></div>
 				  		<div class="row"><div class="col-xs-12">&nbsp;</div></div>
 				  		<div class="row"><div class="col-xs-12"><a href="#second" class="btn left-btn">Message From <br/>The President</a></div></div>
 				  		<div class="row"><div class="col-xs-12">&nbsp;</div></div>
@@ -169,19 +172,19 @@
 				  		<div class="row"><div class="col-xs-12">&nbsp;</div></div>
 				  		<div class="row"><div class="col-xs-12"><a href="#forth" class="btn left-btn">Admission <br/>Requirements</a></div></div>
 				  		<div class="row"><div class="col-xs-12">&nbsp;</div></div>
-				  		<div class="row"><div class="col-xs-12"><a href="#fifth" class="btn left-btn">Required <br/>Documents</a></div></div>
+				  		<div class="row"><div class="col-xs-12"><a href="#fifth" class="btn left-btn"><font size=2>&nbsp;<br/></font>Required Documents</a></div></div>
 				  		<div class="row"><div class="col-xs-12">&nbsp;</div></div>
 				  		<div class="row"><div class="col-xs-12"><a href="#sixth" class="btn left-btn">Tuition Fee and <br/>Other Expenses</a></div></div>
 				  		<div class="row"><div class="col-xs-12">&nbsp;</div></div>
-				  		<div class="row"><div class="col-xs-12"><a href="#seventh" class="btn left-btn">Application<br/> Form</a></div></div>
+				  		<div class="row"><div class="col-xs-12"><a href="#seventh" class="btn left-btn"><font size=2>&nbsp;<br/></font>Application Form</a></div></div>
 				  		<div class="row"><div class="col-xs-12">&nbsp;</div></div>
-				  		<div class="row"><div class="col-xs-12"><a href="#eight" class="btn left-btn">Forms <br/>Download</a></div></div>
+				  		<div class="row"><div class="col-xs-12"><a href="#eight" class="btn left-btn"><font size=2>&nbsp;<br/></font>Forms Download</a></div></div>
 				  		<div class="row"><div class="col-xs-12">&nbsp;</div></div>
 				  		<div class="row"><div class="col-xs-12"><a href="#ninth" class="btn left-btn">Program Accreditation<br/> / Recognition</a></div></div>
 				  		<div class="row"><div class="col-xs-12">&nbsp;</div></div>
-				  		<div class="row"><div class="col-xs-12"><a href="#tenth" class="btn left-btn">Contact <br/>Us</a></div></div>
+				  		<div class="row"><div class="col-xs-12"><a href="#tenth" class="btn left-btn"><font size=2>&nbsp;<br/></font>Contact Us</a></div></div>
 				  		<div class="row"><div class="col-xs-12">&nbsp;</div></div>
-				  		<div class="row"><div class="col-xs-12"><a href="#eleth" class="btn left-btn">Photo<br/>Gallery</a></div></div>
+				  		<div class="row"><div class="col-xs-12"><a href="#eleth" class="btn left-btn"><font size=2>&nbsp;<br/></font>Photo Gallery</a></div></div>
 				  		<div class="row"><div class="col-xs-12">&nbsp;</div></div> 
 	  			</div>
 	    	<div class="col-xs-8">
@@ -214,7 +217,7 @@
 				<p>&nbsp;</p>
 	   			<div id="second"class="title"><font color="#1F497D">Message From The President</font></div>
    				<div class="row">
-   					<div class="col-xs-6">
+   					<div class="col-xs-5">
    						&nbsp;<br/>
     					<font style="background-color:#EDEDED" size="6" color="#1F497D"><b>Greetings from the President</b></font>
     					&nbsp;<br/>
@@ -227,10 +230,10 @@
 						</p>
 						<p>&nbsp;</p> 
    					</div>
-   					<div class="col-xs-6 text-center">
+   					<div class="col-xs-7 text-center">
    						<p>&nbsp;</p>
     					<img height='520px' width='680px' src="${pageContext.request.contextPath}/images/picture-1.jpg" class="img-responsive center-block"> 					
-    					<font size="6" color="#1F497D"><b>Professor G. Batbaatar, The President</b></font>
+    					<font size="6" color="#1F497D" style="width:700px"><b>Professor G. Batbaatar, The President of (MNUMS)</b></font>
     				</div>
    				</div>
    				<div id="third" class="title"><font color="#1F497D">Introduction and History</font></div>
@@ -276,7 +279,14 @@
 				<p>&nbsp;</p>
 	   			<div id="forth" class="title"><font color="#1F497D">Admission Requirements</font></div>
    				<p>&nbsp;</p>
-				<p><font size="5" color="red"><b>Note: We welcome students from all over the world and we also welcome both Male and Female Students. We strongly encourage female students to apply.</b></font></p>
+				<p><font size="5" color="red"><b>Note: <br/>
+						1.	The Admission for September 2017 Session is open Now.<br/>
+						2.	We have Limited Seats Available for September 2017 Session.<br/>
+						3.	We strongly encourage the Prospective students to Apply as soon as possible. <br/>
+						4.	The Selection will be based on Merit till seats are filled. <br/>
+						5.	We welcome students from all over the world and we also welcome both Male and Female Students.<br/>
+						6.  We strongly encourage female students to apply.<br/>
+						7.	Separate Hostel Facilities available for Female Students.<br/></b></font></p>
 				<p>The admission Requirements for Foreign Students from Different Countries of the world are as follows (The Qualifications shown below are the minimum required qualifications for admission in the MBBS/MD program; students with higher qualifications are also eligible to apply for this program).  :</p>
 				<font style="background-color:#EDEDED" size="6" color="#1F497D"><b>1.	 Students From USA and Canada</b></font><br/>
 				<font style="background-color:#EDEDED" size="5" color="#1F497D"><b><u>For Students From Canada:</u></b></font>
@@ -291,10 +301,10 @@
 					<li>MCAT recommended but not Required</li>
 					<li>Must be Fluent in English Language</li>
 				</ul>
-				<font style="background-color:#EDEDED" size="6" color="#1F497D"><b>2.	Students From China</b></font>
+				<font style="background-color:#EDEDED" size="6" color="#1F497D"><b>2.	Students From China 中国学生入学要求</b></font>
 				<ul>
-					<li>A proof of Satisfactory completion of “12 years” of formal School Education (student must have studied Chemistry / Biology in High School). e.g. Higher Secondary School Certificate /College Diploma etc.</li>
-					<li>Must be Fluent in English Language</li>
+					<li>A proof of Satisfactory completion of “12 years” of formal School Education (student must have studied Chemistry (化学)/ Biology (生物学) in High School). e.g. Higher Secondary School Certificate (高中毕业证书) /College Diploma (大专毕业证书等) etc. 必须拥有12年完成的学习证明，比如高中毕业证书等学历；高中期间学习过化学/生物学；</li>
+					<li>Must be Fluent in English Language 英语水平能够达到用英语受本科医学专业课程。</li>
 				</ul>
 				<font style="background-color:#EDEDED" size="6" color="#1F497D"><b>3.	Students From India</b></font>
 				<ul>
@@ -453,13 +463,28 @@
 						<p>&nbsp;</p>
 					</li>
 				</ul>
+				<div id="tweth" class="title"><font color="#1F497D">News & Events</font></div>
+				<p>&nbsp;</p>
+				<div class="">
+				<p class="text-center"><font color="red" size="7">NOTICE</font></p>
+				<font color="red">  1.	The Admission for September 2017 Session is open Now.<br/>
+						2.	We have Limited Seats Available for September 2017 Session.<br/>
+						3.	We strongly encourage the Prospective students to Apply as soon as possible. <br/>
+						4.	The Selection will be based on Merit till seats are filled. <br/>
+						5.	We welcome students from all over the world and we also welcome both Male and Female Students.<br/>
+						6.  We strongly encourage female students to apply.<br/>
+						7.	Separate Hostel Facilities available for Female Students.<br/></font>
+				</div>
+				<p>&nbsp;</p>
     			<div id="tenth" class="title"><font color="#1F497D">Contact Us</font></div>
    					<div class="row">
    						<div class="col-xs-6">
    							<p>&nbsp;</p>
    							<font color="black">
    							For any further information please do not hesitate to contact us.<br/>
-   							<img height='100px' width='80px' src="${pageContext.request.contextPath}/images/Sami.jpg"/><br/>
+   							<p>&nbsp;</p>
+   							<img height='160px' width='140px' src="${pageContext.request.contextPath}/images/Sami.jpg"/><br/>
+   							<p>&nbsp;</p>
    							Dr. Muhammad Umair Sami <br/>
    							MBBS, MD, Ph.D (Candidate)<br/>
 							Adviser to The Director of Admissions,<br/>

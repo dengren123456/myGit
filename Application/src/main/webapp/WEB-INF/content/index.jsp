@@ -13,7 +13,23 @@
     <link href="${pageContext.request.contextPath}/bootstrap/css/index.css" rel="stylesheet" type="text/css">
     <script src="https://cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>    
     <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>    
-    <title>index</title>      
+    <title>index</title>
+    <script type="text/javascript">
+	    $(function(){
+	    	$.ajax({
+	    		url:'${pageContext.request.contextPath}/visitAction_getCounts.action',
+	    		data:{},
+	    		dataType:'json',
+				method:'POST',
+				success:function(data){
+					$("#count").empty();
+					var html='You are Visitor No.:02017000'+ data.status;
+					$("#count").append(html);
+				},
+	    	})
+	    })
+    
+    </script>      
 </head>
 <body>
 	  <div class="row">
@@ -28,13 +44,13 @@
 				<p class="introduction">MBBS / MD Program Admission Session 2017</p>
 				<p><img height='550px' width='1000px' src="${pageContext.request.contextPath}/images/index-image.png" class="img-responsive center-block"></p>
 				<p class="introduction-down">For Admission in MBBS / MD Program Please Press “ENTER”</p>
-				<p><a class="css-3d-btn" href="${pageContext.request.contextPath}/applicationForm">ENTER</a></p>
+				<p><a class="css-3d-btn" href="${pageContext.request.contextPath}/visitAction_add.action">ENTER</a></p>
 				<p></p>
 			</div>
 	    </div>
 	    <div class="row">
 	    	<div class="col-xs-4">&nbsp;</div>
-	  		<div class="col-xs-4 text-center"><p class="introduction">You are Visitor No.: 02017000</p></div>
+	  		<div class="col-xs-4 text-center"><p class="introduction" id="count"></p></div>
 	  		<div class="col-xs-4">&nbsp;</div>
 	    </div>
 </body>
