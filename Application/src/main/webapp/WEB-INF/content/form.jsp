@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
-<form id="formId" enctype="multipart/form-data" method="post" action="${pageContext.request.contextPath}/applicantAction_application.action">
+<form id="formId" name="form1" enctype="multipart/form-data" method="post" action="${pageContext.request.contextPath}/applicantAction_application.action">
 	<table border="1">
 		<tr>
 			<td>
@@ -304,6 +304,7 @@
 	</table>
 			<div id="inputFile">
 			<input type="file" multiple=true name="upload">
+			<!-- <input type="file" multiple=true name="upload">
 			<input type="file" multiple=true name="upload">
 			<input type="file" multiple=true name="upload">
 			<input type="file" multiple=true name="upload">
@@ -311,8 +312,7 @@
 			<input type="file" multiple=true name="upload">
 			<input type="file" multiple=true name="upload">
 			<input type="file" multiple=true name="upload">
-			<input type="file" multiple=true name="upload">
-			<input type="file" multiple=true name="upload">
+			<input type="file" multiple=true name="upload"> -->
 			<div id="addUpload"></div>
 			<label>You can Continue adding other attachments</label><br/>
 			<label>Click the plus</label><br/>

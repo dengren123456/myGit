@@ -13,10 +13,12 @@
     <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" rel="stylesheet">
     <link href="https://cdn.bootcss.com/Buttons/2.0.0/css/buttons.min.css" rel="stylesheet">
     <link href="${pageContext.request.contextPath}/bootstrap/css/application.css" rel="stylesheet" type="text/css">
+    <link href="${pageContext.request.contextPath}/bootstrap/css/loading.css" rel="stylesheet" type="text/css">
     <link href="http://cdn.bootcss.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <script src="https://cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>    
     <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>    
     <script src="https://cdn.bootcss.com/Buttons/2.0.0/js/buttons.min.js"></script>
+    <script src="${pageContext.request.contextPath}/bootstrap/js/loading.js"></script>
     <title>application</title>
     <script type="text/javascript">
 	function addFile(){
@@ -40,71 +42,85 @@
 		})
 	}
 	function submit(){
-		var dataParams = {
-				call:$('#call').val(),
-				familyName:$('#familyName').val(),
-				firstMiddleName:$('#firstMiddleName').val(),
-				age:$('#age').val(),
-				birthday:$('#birthday').val(),
-				place:$('#place').val(),
-				sex:$('#sex').val(),
-				address:$('#address').val(),
-				city:$('#city').val(),
-				state:$('#state').val(),
-				postal:$('#postal').val(),
-				country:$('#country').val(),
-				natives:$('#natives').val(),
-				secondLanguage:$('#secondLanguage').val(),
-				nationality:$('#nationality').val(),
-				passport:$('#passport').val(),
-				date:$('#date').val(),
-				homeTel:$('#homeTel').val(),
-				workTel:$('#workTel').val(),
-				fax:$('#fax').val(),
-				mobile:$('#mobile').val(),
-				email1:$('#email1').val(),
-				email2:$('#email2').val(),
-				occuption:$('#occuption').val(),
-				academic:$('#academic').val(),
-				program:$('#program').val(),
-				programDate:$('#programDate').val(),
-				f1:$('#f1').val(),
-				t1:$('#t1').val(),
-				name_school1:$('#name_school1').val(),
-				certificate1:$('#certificate1').val(),
-				marks1:$('#marks1').val(),
-				age1:$('#age1').val(),
-				f2:$('#f2').val(),
-				t2:$('#t2').val(),
-				name_school2:$('#name_school2').val(),
-				certificate2:$('#certificate2').val(),
-				marks2:$('#marks2').val(),
-				age2:$('#age2').val(),
-				languages2:$('#languages2').val(),
-				hear:$('#hear').val(),
-				accommodation:$('#accommodation').val(),
-				circle:$('#circle').val(),
-				startingDate:$('#startingDate').val(),
-				endDate:$('#endDate').val(),
-				smoke:$('#smoke').val(),
-				vegetarian:$('#vegetarian').val(),
-				room:$('#room').val(),
-				comments:$('#comments').val(),
-				email:$('#email').val(),
-				emergency:$('#emergency').val(),
-				homeTel2:$('#homeTel2').val(),
-				workTel2:$('#workTel2').val(),
-				mobileCountry:$('#mobileCountry').val(),
-				faxCountry:$('#faxCountry').val(),
-				address2:$('#address2').val(),
-				app:$('#app').val(),
-				dates:$('#dates').val(),
-				app2:$('#app2').val(),
-				dates2:$('#dates2').val(),
-			};
-		var jsonBook=JSON.stringify(dataParams);
-		$('#btnHidden').attr('value',jsonBook);
-		$("#formId").submit();
+		 var s=document.form1.upload.value; 
+         if(s==""){
+             alert("Please choose all posdetail files.");
+             document.form1.upload.focus();
+             return;
+         }else{
+        	 
+        	 var dataParams = {
+     				call:$('#call').val(),
+     				familyName:$('#familyName').val(),
+     				firstMiddleName:$('#firstMiddleName').val(),
+     				age:$('#age').val(),
+     				birthday:$('#birthday').val(),
+     				place:$('#place').val(),
+     				sex:$('#sex').val(),
+     				address:$('#address').val(),
+     				city:$('#city').val(),
+     				state:$('#state').val(),
+     				postal:$('#postal').val(),
+     				country:$('#country').val(),
+     				natives:$('#natives').val(),
+     				secondLanguage:$('#secondLanguage').val(),
+     				nationality:$('#nationality').val(),
+     				passport:$('#passport').val(),
+     				date:$('#date').val(),
+     				homeTel:$('#homeTel').val(),
+     				workTel:$('#workTel').val(),
+     				fax:$('#fax').val(),
+     				mobile:$('#mobile').val(),
+     				email1:$('#email1').val(),
+     				email2:$('#email2').val(),
+     				occuption:$('#occuption').val(),
+     				academic:$('#academic').val(),
+     				program:$('#program').val(),
+     				programDate:$('#programDate').val(),
+     				f1:$('#f1').val(),
+     				t1:$('#t1').val(),
+     				name_school1:$('#name_school1').val(),
+     				certificate1:$('#certificate1').val(),
+     				marks1:$('#marks1').val(),
+     				age1:$('#age1').val(),
+     				f2:$('#f2').val(),
+     				t2:$('#t2').val(),
+     				name_school2:$('#name_school2').val(),
+     				certificate2:$('#certificate2').val(),
+     				marks2:$('#marks2').val(),
+     				age2:$('#age2').val(),
+     				languages2:$('#languages2').val(),
+     				hear:$('#hear').val(),
+     				accommodation:$('#accommodation').val(),
+     				circle:$('#circle').val(),
+     				startingDate:$('#startingDate').val(),
+     				endDate:$('#endDate').val(),
+     				smoke:$('#smoke').val(),
+     				vegetarian:$('#vegetarian').val(),
+     				room:$('#room').val(),
+     				comments:$('#comments').val(),
+     				email:$('#email').val(),
+     				emergency:$('#emergency').val(),
+     				homeTel2:$('#homeTel2').val(),
+     				workTel2:$('#workTel2').val(),
+     				mobileCountry:$('#mobileCountry').val(),
+     				faxCountry:$('#faxCountry').val(),
+     				address2:$('#address2').val(),
+     				app:$('#app').val(),
+     				dates:$('#dates').val(),
+     				app2:$('#app2').val(),
+     				dates2:$('#dates2').val(),
+     			};
+     		var jsonBook=JSON.stringify(dataParams);
+     		$('#btnHidden').attr('value',jsonBook);
+     		$("#formId").submit(); 
+     		var load = new Loading();
+	 			load.init();
+	 			load.start();
+	 			setTimeout(function() {
+	 				load.stop();
+	 			}, 30000)
+         }
 // 		$.ajax({
 // 			url:'${pageContext.request.contextPath}/applicantAction_application.action',
 // 			data:{jsonBook : jsonBook},
