@@ -16,38 +16,37 @@
 	http://www.springframework.org/schema/aop/spring-aop-4.2.xsd
 	http://www.springframework.org/schema/task
     http://www.springframework.org/schema/task/spring-task-4.2.xsd">
-	<!-- 使用注解  -->
-	<task:annotation-driven /> 
-	<context:annotation-config/>  	
-	<context:component-scan base-package="cn.guitar.."/>
+	<!-- 使用xml -->
 	<!-- 以下采用相对路径  -->
 	<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
   		<property name="locations" value="/WEB-INF/dbconf.properties"/>
 	</bean> 
+	<!-- 配置c3p0连接池 -->
 	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"
 		destroy-method="close"
 		p:driverClass="${driverClassName}"
 		p:jdbcUrl="${url}"/>
+	<!-- 配置SessionFactory -->
 	<bean id="sessionFactory" 
 		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean"
 		p:dataSource-ref="dataSource">
-		<property name="annotatedClasses">
-			<list>
-				<value>cn.guitar.entity.Guitar</value>
-			</list>
+		<property name="mappingDirectoryLocations">
+	          <list>
+	            <value>cn/guitar/mapper</value>
+	          </list>
 		</property>
 		<property name="hibernateProperties">
 			<props>
 				<prop key="hibernate.dialect">cn.guitar.util.SQLiteDialect</prop>
-				<prop key="hibernate.hbm2ddl.auto">none</prop>
+				<prop key="hibernate.hbm2ddl.auto">create</prop>
 				<prop key="hibernate.show_sql">true</prop>
 				<prop key="hibernate.format_sql">false</prop>
-				<prop key="hibernate.transaction.factory_class">org.hibernate.transaction.JDBCTransactionFactory</prop>
-				<prop key="hibernate.search.default.directory_provider">filesystem</prop>
-       			<prop key="hibernate.search.default.indexBase">/usr/local/web/luceneindex</prop>            	
+				<prop key="hibernate.transaction.factory_class">org.hibernate.transaction.JDBCTransactionFactory</prop>            	
 			</props>
 		</property>
 	</bean>
+	
+	<!-- 配置事务管理器 -->
     <bean id="transactionManager" class=
 		"org.springframework.orm.hibernate4.HibernateTransactionManager"
 		p:sessionFactory-ref="sessionFactory"/>	

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class name="cn.guitar.entity.Guitar" table="guitar">
+	<id name="serialNumber" type="java.lang.String">
+		<column name="serialNumber" length="50"></column>
+	</id>
+	<property name="price" type="java.lang.double">
+		<column name="price" length="50"></column>
+	</property>
+	<property name="builder" type="java.lang.String">
+		<column name="builder" length="50"></column>
+	</property>
+	<property name="model" type="java.lang.String">
+		<column name="model" length="50"></column>
+	</property>
+	<property name="type" type="java.lang.String">
+		<column name="type" length="50"></column>
+	</property>
+	<property name="backWood" type="java.lang.String">
+		<column name="backWood" length="50"></column>
+	</property>
+	<property name="topWood" type="java.lang.String">
+		<column name="topWood" length="50"></column>
+	</property>
+</class>
